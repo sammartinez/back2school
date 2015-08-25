@@ -8,7 +8,9 @@
 
         function __construct($name, $code, $id = null)
         {
-
+            $this->name = $name;
+            $this->code = $code;
+            $this->id = $id;
         }
 
 
@@ -83,7 +85,7 @@
 
         static function find($search_id)
         {
-            
+
         }
 
     }
