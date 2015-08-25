@@ -2,13 +2,13 @@
     class Student
     {
         private $name;
-        private $enrollment_date;
+        private $enroll_date;
         private $id;
 
-        function __construct($name, $enrollment_date, $id = null)
+        function __construct($name, $enroll_date, $id = null)
         {
             $this->name = $name;
-            $this->enrollment_date = $enrollment_date;
+            $this->enroll_date = $enroll_date;
             $this->id = $id;
         }
 
@@ -25,14 +25,14 @@
             $this->name = $new_name;
         }
 
-        function getEnrollmentDate()
+        function getEnrollDate()
         {
-            return $this->enrollment_date;
+            return $this->enroll_date;
         }
 
-        function setEnrollmentDate($new_enrollment_date)
+        function setEnrollDate($new_enroll_date)
         {
-            $this->enrollment_date = $new_enrollment_date;
+            $this->enroll_date = $new_enroll_date;
         }
 
         function getId()

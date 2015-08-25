@@ -26,8 +26,8 @@
             //Arrange
             $name = "Shmuel Irving-Jones";
             // very new student
-            $enrollment_date = "2015-08-25";
-            $test_student = new Student($name, $enrollment_date);
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
 
             //Act
             $result = $test_student->getName();
@@ -36,7 +36,22 @@
             $this->assertEquals($name, $result);
         }
 
-        
+        function test_getEnrollDate()
+        {
+            //Arrange
+            $name = "Shmuel Irving-Jones";
+            // very new student
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
+
+            //Act
+            $result = $test_student->getEnrollDate();
+
+            //Assert
+            $this->assertEquals($enroll_date, $result);
+        }
+
+
     }
 
 ?>
