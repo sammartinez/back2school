@@ -17,27 +17,27 @@
         // Getters and Setters
         function getName()
         {
-
+            return $this->name;
         }
 
         function setName($new_name)
         {
-
+            $this->name = $new_name;
         }
 
         function getEnrollmentDate()
         {
-
+            return $this->enrollment_date;
         }
 
         function setEnrollmentDate($new_enrollment_date)
         {
-
+            $this->enrollment_date = $new_enrollment_date;
         }
 
         function getId()
         {
-
+            return $this->id;
         }
 
 
