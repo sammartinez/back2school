@@ -24,7 +24,7 @@
 
         function setName($new_name)
         {
-
+            $this->name = $new_name;
         }
 
         function getCode()
@@ -34,12 +34,12 @@
 
         function setCode($new_code)
         {
-
+            $this->code = $new_code;
         }
 
         function getId()
         {
-
+            return $this->id;
         }
 
 

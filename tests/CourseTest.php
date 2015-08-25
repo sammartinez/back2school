@@ -48,5 +48,26 @@
             //Assert
             $this->assertEquals($code, $result);
         }
+
+        //save test
+        function test_save()
+        {
+            //Arrange
+            $name = "Gavanese Jamelan";
+            $code = "MUSC69";
+            $test_course = new Course($name, $code);
+            $test_course->save();
+
+            //Act
+            $result = Course::getAll();
+
+            //Assert
+            $this->assertEquals($test_course, $result[0]);
+        }
+
+
+        //getall test
+
+        //delete all test
     }
 ?>
