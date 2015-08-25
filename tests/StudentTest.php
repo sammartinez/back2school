@@ -79,7 +79,7 @@
             $test_student2->save();
 
             //Act
-            Student::getAll();
+            $result = Student::getAll();
 
             //Assert
             $this->assertEquals([$test_student, $test_student2], $result);
