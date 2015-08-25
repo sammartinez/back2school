@@ -96,7 +96,14 @@
 
         static function find($search_id)
         {
-
+            $found_student = null;
+            $all_students = Student::getAll();
+            foreach ($all_students as $student) {
+                if ($student->getId() == $search_id) {
+                    $found_student = $student;
+                }
+            }
+            return $found_student;
         }
 
     }
