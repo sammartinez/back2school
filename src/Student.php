@@ -43,7 +43,6 @@
 
 
         // Database methods
-
         function save()
         {
             $GLOBALS['DB']->exec(
