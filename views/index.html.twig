@@ -11,8 +11,9 @@
 
             <h3><a href="/students">Add or view a student</a></h3>
             <h3><a href="/courses">Add or view courses</a></h3>
-{% block studentTable %}
-            <table class="table table-striped">
+
+            <div class="col-md-6">
+            <table class="table table-bordered">
                 {% if students is not empty%}
                 <tr>
                     <td><b>Student Name:</b></td>
@@ -30,9 +31,28 @@
                 <h4>No students added please add a student</h4>
                 {% endif %}
             </table>
-{%  endblock %}
+        </div>
+            <div class="col-md-6">
+            <table class="table table-bordered">
+                {% if courses is not empty %}
+                <tr>
+                    <td><b>Course Name:</b></td>
+                    <td><b>Course ID: </b></td>
+                </tr>
 
+                    {% for course in courses %}
+                    <tr>
 
+                        <td>{{ course.getName }}</td>
+                        <td>{{ course.getCode }}</td>
+                    </tr>
+                    {% endfor %}
+
+                {% else %}
+                <h4>No courses added. Please add a course. </h4>
+                {% endif %}
+            </table>
+            </div>
             </div>
     </body>
 </html>
