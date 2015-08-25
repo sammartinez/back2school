@@ -81,16 +81,16 @@
 
         static function getAll()
         {
-            $returned_courses = $GLOBALS['DB']->query("SELECT * FROM courses;");
-            $courses = array();
-            foreach ($returned_courses as $course) {
+            $courses_query = $GLOBALS['DB']->query("SELECT * FROM courses;");
+            $all_courses = array();
+            foreach ($courses_query as $course) {
                 $name = $course['name'];
                 $code = $course['code'];
                 $id = $course['id'];
                 $new_course = new Course($name, $code, $id);
-                array_push($courses, $new_course);
+                array_push($all_courses, $new_course);
             }
-            return $courses;
+            return $all_courses;
         }
 
         static function deleteAll()

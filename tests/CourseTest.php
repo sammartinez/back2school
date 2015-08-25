@@ -108,5 +108,22 @@
             $result = Course::getAll();
             $this->assertEquals([], $result);
         }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "High Times";
+            $code = "CHEM420";
+            $test_course = new Course($name, $code);
+            $test_course->save();
+
+            //Act
+            $new_name = "Boring Normal Chemistry";
+            $test_course->update($new_name);
+
+            //Assert
+            $result = Course::getAll();
+            $this->assertEquals($new_name, $result[0]->getName());
+        }
     }
 ?>
