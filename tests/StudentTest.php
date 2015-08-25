@@ -40,7 +40,6 @@
         {
             //Arrange
             $name = "Shmuel Irving-Jones";
-            // very new student
             $enroll_date = "2015-08-25";
             $test_student = new Student($name, $enroll_date);
 
@@ -49,6 +48,21 @@
 
             //Assert
             $this->assertEquals($enroll_date, $result);
+        }
+
+        function test_save()
+        {
+            //Arrange
+            $name = "Shmuel Irving-Jones";
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
+
+            //Act
+            $test_student->save();
+
+            //Assert
+            $result = Student::getAll();
+            $this->assertEquals($test_student, $result[0]);
         }
 
 
