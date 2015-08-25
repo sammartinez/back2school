@@ -23,6 +23,7 @@
                 <tr>
                     <td><b>Student Name:</b></td>
                     <td><b>Enrollment Date:</b></td>
+                    <td><b>Course Name:</b></td>
                 </tr>
 
                     {% for student in students %}
@@ -30,6 +31,17 @@
 
                         <td>{{ student.getName }}</td>
                         <td>{{ student.getEnrollDate }}</td>
+                        <td>
+                            <form action="/add_courses" method="post">
+
+                            <select id='course_id' name='course_id' type='text'>
+                                {% for course in courses %}
+                                    <option> {{ course.getName }} </option>
+                                {% endfor %}
+                            </select>
+                            <button type='submit' class="btn btn-success">Add Course</button>
+                            </form>
+                        </td>
                     </tr>
                     {% endfor %}
 
