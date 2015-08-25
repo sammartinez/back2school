@@ -1,0 +1,18 @@
+ <html>
+     <head>
+         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+         <title>Registrar Application</title>
+     </head>
+     <body>
+         <div class="container">
+             <h1>{{ course.getName }}</h1>
+
+             {% if students is not empty %}
+
+             {% for student in students %}
+             <li>{{ student.getName }}</li>
+
+             {% endif %}
+         </div>
+     </body>
+ </html>

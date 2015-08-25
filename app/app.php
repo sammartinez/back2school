@@ -29,6 +29,12 @@
         return $app['twig']->render("courses.html.twig", array('courses' => Course::getAll()));
     });
 
+    $app->get("/courses/{id}", function($id) use ($app) {
+
+        $course = Course::find($id);
+        return $app['twig']->render("course.html.twig", array('course' => $course, 'students' => $course->getStudents()));
+    });
+
     //Post Calls
     $app->post("/students", function() use ($app) {
         $name = $_POST['name'];
@@ -47,6 +53,8 @@
 
         return $app['twig']->render('courses.html.twig', array('courses' => Course::getAll()));
     });
+
+
 
 
 
