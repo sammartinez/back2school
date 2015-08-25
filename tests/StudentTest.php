@@ -85,6 +85,27 @@
             $this->assertEquals([$test_student, $test_student2], $result);
         }
 
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "Shmuel Irving-Jones";
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
+            $test_student->save();
+
+            $name2 = "Billy Bartle-Barnaby";
+            $enroll_date2 = "2015-07-09";
+            $test_student2 = new Student($name2, $enroll_date2);
+            $test_student2->save();
+
+            //Act
+            Student::deleteAll();
+
+            //Assert
+            $result = Student::getAll();
+            $this->assertEquals([], $result);
+        }
+
 
     }
 
