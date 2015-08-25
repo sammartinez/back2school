@@ -128,6 +128,23 @@
         }
 
         // test update
+        function test_update()
+        {
+            //Arrange
+            $name = "Shmuel Irving-Jones";
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
+            $test_student->save();
+
+            $new_name = "Reginald Irving-Jones";
+
+            //Act
+            $test_student->update($new_name);
+
+            //Assert
+            $this->assertEquals($new_name, $test_student->getName());
+
+        }
 
         // test delete
 
