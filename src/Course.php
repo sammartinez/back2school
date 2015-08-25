@@ -68,19 +68,37 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM courses WHERE id = {$this->getId()};");
-            //$GLOBALS['DB']->exec("DELETE FROM enrollments WHERE course_id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM enrollments WHERE course_id = {$this->getId()};");
         }
 
 
-        // These methods involve the other class 
+        // These methods involve the other class
         function addStudent($student)
         {
-
+            $GLOBALS['DB']->exec("INSERT INTO enrollments (student_id, course_id) VALUES (
+                {$student->getId()},
+                {$this->getId()}
+            );");
         }
 
         function getStudents()
         {
-
+            $students_query = $GLOBALS['DB']->query(
+                "SELECT students.* FROM
+                    courses JOIN enrollments ON (enrollments.course_id = courses.id)
+                            JOIN students    ON (enrollments.student_id = students.id)
+                 WHERE courses.id = {$this->getId()};
+                "
+            );
+            $matching_students = array();
+            foreach ($students_query as $student) {
+                $name = $student['name'];
+                $enroll_date = $student['enroll_date'];
+                $id = $student['id'];
+                $new_student = new Student($name, $enroll_date, $id);
+                array_push($matching_students, $new_student);
+            }
+            return $matching_students;
         }
 
         static function getAll()
