@@ -125,5 +125,25 @@
             $result = Course::getAll();
             $this->assertEquals($new_name, $result[0]->getName());
         }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "High Times";
+            $code = "CHEM420";
+            $test_course = new Course($name, $code);
+            $test_course->save();
+
+            $name2 = "Gavanese Jamelan";
+            $code2 = "MUSC69";
+            $test_course2 = new Course($name2, $code2);
+            $test_course2->save();
+
+            //Act
+            $result = Course::find($test_course->getId());
+
+            //Assert
+            $this->assertEquals($test_course, $result);
+        }
     }
 ?>
