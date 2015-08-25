@@ -69,12 +69,30 @@
 
         function getCourses()
         {
-
+            $courses_query = $GLOBALS['DB']->query(
+                "SELECT courses.* FROM
+                    students JOIN enrollments ON (enrollments.student_id = students.id)
+                             JOIN courses     ON (enrollments.course_id = courses.id)
+                 WHERE students.id = {$this->getId()};
+                "
+            );
+            $matching_courses = array();
+            foreach ($courses_query as $course) {
+                $name = $course['name'];
+                $code = $course['code'];
+                $id = $course['id'];
+                $new_course = new Course($name, $code, $id);
+                array_push($matching_courses, $new_course);
+            }
+            return $matching_courses;
         }
 
         function addCourse($new_course)
         {
-
+            $GLOBALS['DB']->exec("INSERT INTO enrollments (student_id, course_id) VALUES(
+                {$this->getId()},
+                {$new_course->getId()}
+            );");
         }
 
         static function getAll()
@@ -94,6 +112,9 @@
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM students;");
+
+            //if all students are gone, all enrollments should also be deleted
+            $GLOBALS['DB']->exec("DELETE FROM enrollments;");
         }
 
         static function find($search_id)

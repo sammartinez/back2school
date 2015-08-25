@@ -6,7 +6,7 @@
     */
 
     require_once "src/Course.php";
-    //require_once "src/Student.php";
+    require_once "src/Student.php";
 
     $server = 'mysql:host=localhost;dbname=back2school_test';
     $username = 'root';
@@ -18,7 +18,7 @@
         protected function tearDown()
         {
             Course::deleteAll();
-            // Student::deleteAll();
+            Student::deleteAll();
         }
 
         function test_getName()

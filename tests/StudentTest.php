@@ -168,6 +168,22 @@
             $this->assertEquals($test_student2, $result[0]);
         }
 
+        function test_addCourse()
+        {
+            //Arrange
+            $test_student = new Student("Shmuel Irving-Jones", "2015-08-25");
+            $test_student->save();
+
+            $test_course = new Course("High Times", "CHEM420");
+            $test_course->save();
+
+            //Act
+            $test_student->addCourse($test_course);
+
+            //Assert
+            $this->assertEquals($test_student->getCourses(), [$test_course]);
+        }
+
         function test_getCourses()
         {
             //Arrange
@@ -193,21 +209,7 @@
 
         }
 
-        function test_addCourse()
-        {
-            //Arrange
-            $test_student = new Student("Shmuel Irving-Jones", "2015-08-25");
-            $test_student->save();
 
-            $test_course = new Course("High Times", "CHEM420");
-            $test_course->save();
-
-            //Act
-            $test_student->addCourse($test_course);
-
-            //Assert
-            $this->assertEquals($test_student->getCourses(), [$test_course]);
-        }
 
 
     }
