@@ -71,6 +71,8 @@
             //$GLOBALS['DB']->exec("DELETE FROM enrollments WHERE course_id = {$this->getId()};");
         }
 
+
+        // These methods involve the other class 
         function addStudent($student)
         {
 
