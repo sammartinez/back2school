@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Registrar Application</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to the Registrar's office!</h1>
+
+            <h3><a href="/students">Add or view a student</a></h3>
+            <h3><a href="/courses">Add or view courses</a></h3>
+
+            <table class="table table-striped">
+                {% if students is not empty%}
+                <tr>
+                    <td><b>Student Name:</b></td>
+                    <td><b>Enrollment Date:</b></td>
+                </tr>
+
+                    {% for student in students %}
+                    <tr>
+
+                        <td>{{ student.getName }}</td>
+                        <td>{{ student.getEnrollDate }}</td>
+                    </tr>
+                    {% endfor %}
+
+                {% else %}
+                <h4>No students added please add a student</h4>
+                {% endif %}
+            </table>
+
+
+            </div>
+    </body>
+</html>

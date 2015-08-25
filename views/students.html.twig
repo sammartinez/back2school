@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Registrar Application</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>Students</h1>
+                <form action="/students" method="post">
+                    <label for="name">Student name: </label>
+                    <input type="text" name="name" id="name" placeholder="Student Name" REQUIRED>
+
+                    <label for="enroll_date">Date of Enrollment:</label>
+                    <input type="date" name="enroll_date" id="enroll_date" REQUIRED>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </br>
+            <table class="table table-striped">
+                {% if students is not empty%}
+                <tr>
+                    <td><b>Student Name:</b></td>
+                    <td><b>Enrollment Date:</b></td>
+                </tr>
+
+                    {% for student in students %}
+                    <tr>
+
+                        <td>{{ student.getName }}</td>
+                        <td>{{ student.getEnrollDate }}</td>
+                    </tr>
+                    {% endfor %}
+
+                {% else %}
+                <h4>No students added please add a student</h4>
+                {% endif %}
+            </table>
+            </br>
+            <button type="submit" class="btn btn-default"><a href="/">Home</a></button>
+        </div>
+    </body>
+</html>
