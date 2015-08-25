@@ -50,7 +50,13 @@
         // Database storage methods
         function save()
         {
-
+            $GLOBALS['DB']->exec(
+                "INSERT INTO courses (name, code) VALUES (
+                    '{$this->getName()}',
+                    '{$this->getCode()}'
+                );"
+            );
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         function update($new_name)

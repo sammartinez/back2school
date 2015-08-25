@@ -67,6 +67,25 @@
 
 
         //getall test
+        function test_getAll()
+        {
+            //Arrange
+            $name = "High Times";
+            $code = "CHEM420";
+            $test_course = new Course($name, $code);
+            $test_course->save();
+
+            $name2 = "Gavanese Jamelan";
+            $code2 = "MUSC69";
+            $test_course2 = new Course($name2, $code2);
+            $test_course2->save();
+
+            //Act
+            $result = Course::getAll();
+
+            //Assert
+            $this->assertEquals([$test_course, $test_course2], $result);
+        }
 
         //delete all test
     }
