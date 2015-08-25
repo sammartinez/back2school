@@ -16,6 +16,8 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
+    // Put your routes here dingus
+
 
     return $app;
 ?>
