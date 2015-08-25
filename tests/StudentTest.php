@@ -147,6 +147,26 @@
         }
 
         // test delete
+        function test_delete()
+        {
+            //Arrange
+            $name = "Shmuel Irving-Jones";
+            $enroll_date = "2015-08-25";
+            $test_student = new Student($name, $enroll_date);
+            $test_student->save();
+
+            $name2 = "Billy Bartle-Barnaby";
+            $enroll_date2 = "2015-07-09";
+            $test_student2 = new Student($name2, $enroll_date2);
+            $test_student2->save();
+
+            //Act
+            $test_student->delete();
+
+            //Assert
+            $result = Student::getAll();
+            $this->assertEquals($test_student2, $result[0]);
+        }
 
 
     }
