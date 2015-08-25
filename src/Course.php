@@ -19,7 +19,7 @@
         // Getters and Setters
         function getName()
         {
-
+            return $this->name;
         }
 
         function setName($new_name)
@@ -29,7 +29,7 @@
 
         function getCode()
         {
-
+            return $this->code;
         }
 
         function setCode($new_code)
