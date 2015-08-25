@@ -88,5 +88,25 @@
         }
 
         //delete all test
+        function test_deleteAll()
+        {
+            //Arrange
+            $name = "High Times";
+            $code = "CHEM420";
+            $test_course = new Course($name, $code);
+            $test_course->save();
+
+            $name2 = "Gavanese Jamelan";
+            $code2 = "MUSC69";
+            $test_course2 = new Course($name2, $code2);
+            $test_course2->save();
+
+            //Act
+            Course::deleteAll();
+
+            //Assert
+            $result = Course::getAll();
+            $this->assertEquals([], $result);
+        }
     }
 ?>

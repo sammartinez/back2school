@@ -81,12 +81,21 @@
 
         static function getAll()
         {
-
+            $returned_courses = $GLOBALS['DB']->query("SELECT * FROM courses;");
+            $courses = array();
+            foreach ($returned_courses as $course) {
+                $name = $course['name'];
+                $code = $course['code'];
+                $id = $course['id'];
+                $new_course = new Course($name, $code, $id);
+                array_push($courses, $new_course);
+            }
+            return $courses;
         }
 
         static function deleteAll()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM courses;");
         }
 
         static function find($search_id)
