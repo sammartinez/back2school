@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>Registrar Application</title>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1>Courses</h1>
+                <form action="/courses" method="post">
+                    <label for="name">Course Name:  </label>
+                    <input type="text" name="name" id="name" placeholder="eg History" REQUIRED>
+
+                    <label for="code">Course ID: </label>
+                    <input type="text" name="code" id="code" REQUIRED>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </br>
+
+            <table class="table table-striped">
+                {% if courses is not empty %}
+                <tr>
+                    <td><b>Course Name:</b></td>
+                    <td><b>Course ID: </b></td>
+                </tr>
+
+                    {% for course in courses %}
+                    <tr>
+
+                        <td>{{ course.getName }}</td>
+                        <td>{{ course.getCode }}</td>
+                    </tr>
+                    {% endfor %}
+
+                {% else %}
+                <h4>No courses added. Please add a course. </h4>
+                {% endif %}
+            </table>
+            </br>
+            <button type="submit" class="btn btn-default"><a href="/">Home</a></button>
+        </div>
+    </body>
+</html>

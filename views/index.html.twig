@@ -1,7 +1,9 @@
 <html>
     <head>
+        {% block head %}
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
         <title>Registrar Application</title>
+        {% endblock %}
     </head>
     <body>
         <div class="container">
@@ -9,7 +11,7 @@
 
             <h3><a href="/students">Add or view a student</a></h3>
             <h3><a href="/courses">Add or view courses</a></h3>
-
+{% block studentTable %}
             <table class="table table-striped">
                 {% if students is not empty%}
                 <tr>
@@ -19,7 +21,6 @@
 
                     {% for student in students %}
                     <tr>
-
                         <td>{{ student.getName }}</td>
                         <td>{{ student.getEnrollDate }}</td>
                     </tr>
@@ -29,6 +30,7 @@
                 <h4>No students added please add a student</h4>
                 {% endif %}
             </table>
+{%  endblock %}
 
 
             </div>
