@@ -1,6 +1,6 @@
 # Back2School
 
-##### , 08/25/15
+##### Course Registrar using MySQL join table, 08/25/15
 
 #### By Ashlin Aronin and Deron Johnson
 
@@ -41,7 +41,7 @@ $ php -S localhost:8000
 
 ## Technologies Used
 
-PHP, MySQL, PHPUnit, Silex, Twig, HTML, CSS, Bootstrap
+PHP, phpMyAdmin, MySQL, PHPUnit, Silex, Twig, HTML, CSS, Bootstrap
 
 ### Legal
 
